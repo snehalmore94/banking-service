@@ -31,7 +31,7 @@ jobs:
       run: mvn clean install
 
     - name: Build and push Docker Image
-      uses: mr-smithers-excellent/docker-build-push-@v5
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: snehalmore94/banking-service
         registry: docker.io
