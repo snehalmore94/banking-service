@@ -58,7 +58,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>create-account-docker</finalName>
+		<finalName>banking-service</finalName>
 	</build>
 
 </project>

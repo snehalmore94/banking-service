@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/create-account-docker.jar create-account-docker.jar
+ADD target/banking-service.jar banking-service.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "create-account-docker create-account-docker.jar"]
+ENTRYPOINT ["java", "-jar", "/banking-service.jar"]
