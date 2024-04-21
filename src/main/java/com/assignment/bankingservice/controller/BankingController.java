@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 
 /**
- *
+ * REST Controller for banking operations.
+ * Endpoints:
+ * - POST /api/accounts: Creates a new account for an existing customer with an initial credit amount.
+ * - GET /api/accounts/customer-info: Retrieves detailed information about a customer, including their transactions, based on the customer ID.
  */
 @RestController
 @RequestMapping("/api")
@@ -29,15 +32,17 @@ public class BankingController {
      */
     @PostMapping("/accounts")
     public ResponseEntity<String> createAccount(@RequestParam Long customerId, @RequestParam BigDecimal initialCredit) {
+        // Check if values are negative
+        if (customerId < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Customer ID must not be negative.");
+        }
+        if (initialCredit.compareTo(BigDecimal.ZERO) < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Initial credit must not be negative.");
+        }
         try {
-            if (customerId == null || initialCredit == null) {
-                return ResponseEntity.badRequest().body("Customer ID and Initial Credit must not be null.");
-            }
-
             String result = bankingService.createAccount(customerId, initialCredit);
             return ResponseEntity.status(HttpStatus.CREATED).body(result);
         } catch (CustomServiceException e) {
-            // Assuming CustomServiceException is a runtime exception for cases like customer not found.
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (Exception e) {
             // Generic exception handling for unforeseen issues.
@@ -52,6 +57,10 @@ public class BankingController {
      */
     @GetMapping("/accounts/customer-info")
     public ResponseEntity<?> getCustomerInfo(@RequestParam Long customerId) {
+        // Check if values are negative
+        if (customerId < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Customer ID must not be negative.");
+        }
         try {
             CustomerInfomationDTO customerInfo = bankingService.getCustomerInfo(customerId);
             return ResponseEntity.ok(customerInfo);

@@ -2,13 +2,16 @@ package com.assignment.bankingservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
+/**
+ *
+ * Entry point for the Spring Boot application.
+ */
 @SpringBootApplication
-public class RestAccountApplication {
+public class CurrentAccountApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestAccountApplication.class, args);
+		SpringApplication.run(CurrentAccountApplication.class, args);
 	}
 
 }

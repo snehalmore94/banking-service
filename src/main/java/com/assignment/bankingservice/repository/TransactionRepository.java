@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository interface for Transaction entities.
+ * Extends JpaRepository to provide basic CRUD operations on the Transaction entity.
+ */
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
