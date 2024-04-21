@@ -38,7 +38,7 @@ public class BankingService {
     /**
      * Creates new account for a customer
      *
-     * @param customerId the ID of the customer who owns the account
+     * @param customerId    the ID of the customer who owns the account
      * @param initialCredit the initial amount to be credited to the account
      * @return the created account with or without an initial transaction
      */
@@ -66,6 +66,7 @@ public class BankingService {
 
     /**
      * Create transaction object and set the values.
+     *
      * @param account
      * @param amount
      */
@@ -79,9 +80,10 @@ public class BankingService {
     }
 
     /**
+     * Retrieves  customer information based on customer id.
      *
-     * @param customerId
-     * @return
+     * @param customerId ID of customer
+     * @return CustomerInfomationDTO
      */
     public CustomerInfomationDTO getCustomerInfo(Long customerId) {
 
@@ -98,10 +100,11 @@ public class BankingService {
     }
 
     /**
+     * This method convert Entity to DTO
      *
-     * @param transactions
-     * @param customer
-     * @return
+     * @param transactions transaction list of particular customer.
+     * @param customer     customer ID
+     * @return CustomerInfomationDTO
      */
     private CustomerInfomationDTO convertToCustomerInformationDTO(List<Transaction> transactions, Customer customer) {
 
@@ -127,7 +130,6 @@ public class BankingService {
         customerInfoDTO.setTransactions(transactionDTOs);
 
         return customerInfoDTO;
-
 
     }
 }

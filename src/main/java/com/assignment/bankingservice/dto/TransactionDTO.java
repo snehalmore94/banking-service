@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
+/**
+ * Data Transfer Object (DTO) for Transaction of customer.
+ */
 @Getter
 @Setter
 @AllArgsConstructor

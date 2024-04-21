@@ -8,6 +8,14 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * Data Transfer Object (DTO) for customer information.
+ * Attributes:
+ * - name: The first name of the customer.
+ * - surname: The last name of the customer.
+ * - balance: The current balance of the customer's account
+ * - transactions: A list of {@link TransactionDTO} objects representing transactions associated with the customer's account.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
